@@ -133,7 +133,7 @@ class CreateLink {
   }
 }
 
-var formatPreferencesKey = 'format_preferences';
+var formatPreferencesKey = 'format_preferences_';
 var defaultFormatKey = 'defaultFormat';
 
 function escapeHTML(text) {
@@ -154,10 +154,10 @@ function showPrompt(text, pos, subject) {
 }
 
 CreateLink.default_formats = [
-    {label: "Plain text", format: '%text% %url%' },
-    {label: "HTML", format: '<a href="%url%">%htmlEscapedText%</a>' },
-    {label: "markdown", format: '[%text_md%](%url%)' },
-    {label: "mediaWiki", format: '[%url% %text%]' },
+    //{label: "Plain text", format: '%text%' },
+    // {label: "HTML", format: '<a href="%url%">%htmlEscapedText%</a>' },
+    // {label: "markdown", format: '[%text_md%](%url%)' },
+    // {label: "mediaWiki", format: '[%url% %text%]' },
 ];
 
 module.exports = CreateLink

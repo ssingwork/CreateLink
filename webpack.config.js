@@ -1,6 +1,7 @@
 "use strict"
 
 const webpack = require("webpack")
+const path = require("path");
 
 module.exports = {
   entry: {
@@ -10,7 +11,7 @@ module.exports = {
   //devtool: 'source-map',
   cache: true,
   output: {
-    path: `extension/js`,
+    path: path.resolve(__dirname,"extension/js"),
     publicPath: '/',
     filename: "[name].js"
   },

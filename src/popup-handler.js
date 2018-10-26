@@ -26,13 +26,13 @@ module.exports = class PopupHandler {
   setupListItems(formats) {
     var listParent = document.getElementById("formatlist");
     var insertionPoint = document.getElementById("separator");
-    var n = 0;
-    formats.map( (def) => {
-      var id = "item" + n;
-      var e = this.createListElement(id, def.label);
-        listParent.insertBefore(e, insertionPoint);
-      n++;
-    } );
+    // var n = 0;
+    // formats.map( (def) => {
+    //   var id = "item" + n;
+    //   var e = this.createListElement(id, def.label);
+    //     listParent.insertBefore(e, insertionPoint);
+    //   n++;
+    // } );
   }
 
   onMouseUp(ev) {
@@ -49,13 +49,13 @@ module.exports = class PopupHandler {
       window.close();
     } else if ( id.match(/^item(\d+)$/) ) {
       var formatId = Number(RegExp.$1);
-
-      chrome.runtime.sendMessage({
-        request: 'copyInFormat',
-        format: formatId,
-      }, () => {
-        window.close()
-      })
+       console.log("format id ",formatId); 
+      // chrome.runtime.sendMessage({
+      //   request: 'copyInFormat',
+      //   format: formatId,
+      // }, () => {
+      //   window.close()
+      // })
     }
   }
 }

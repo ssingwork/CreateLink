@@ -25,13 +25,14 @@ module.exports = class ContextMenuHandler {
   }
 
   onMenuItemClicked(info, tab) {
-    var formatId = this.formatIndexOfMenuItemId(info.menuItemId)
-
-    this.broker.sendMessage({
-      request: 'copyInFormat',
-      format: formatId,
-      info: info,
-    }, tab)
+    //var formatId = this.formatIndexOfMenuItemId(info.menuItemId)
+     alert("Clciked on "+JSON.stringify(info)); 
+    // this.broker.sendMessage({
+    //   request: 'copyInFormat',
+    //   format: formatId,
+    //   info: info,
+    // }, tab)
+    
   }
 
   updateContextMenus(formats) {
@@ -47,7 +48,7 @@ module.exports = class ContextMenuHandler {
       for (var formatId = 0; formatId < formats.length; ++formatId) {
         var menuId = chrome.contextMenus.create({
           "title": formats[formatId].label,
-          "id": "context-menu-item-" + formatId,
+          "id": formats[formatId].label,          
           "contexts": ["all"],
         });
         this.contextMenuIdList[menuId] = formatId;
